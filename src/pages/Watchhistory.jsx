@@ -1,8 +1,11 @@
 import React from 'react'
 
+
 function Watchhistory() {
   return (
-    <div>Watchhistory</div>
+    <div>
+        
+    </div>
   )
 }
 
