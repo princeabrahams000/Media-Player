@@ -4,6 +4,7 @@ import Landingpage from './pages/Landingpage'
 import Home from './pages/Home'
 import Watchhistory from './pages/Watchhistory'
 import Header from './components/Header'
+import Footer from './components/Footer'
 
 function App() {
   
@@ -18,7 +19,9 @@ function App() {
       <Route path='/home' element={<Home/>}/>
       <Route path='/watch-history' element={<Watchhistory/>} />
   
-  </Routes>    
+  </Routes>   
+
+  <Footer/> 
 </>
   )
 }

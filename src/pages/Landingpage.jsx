@@ -82,9 +82,9 @@ function Landingpage() {
         <div className="col-md-1"></div>
       </div>
 
-      <div className="row w-100 mt-5">
+      <div className="row w-100 mt-5 ">
         <div className="col-md-1"></div>
-        <div className="col-md-10 border p-4 rounded m-4">
+        <div style={{width:'80%'}} className="col-md-10 border p-4 rounded m-5">
           <div className="row w-100 mt-5">
             <div className="col-md-6">
               <h4 className='text-primary'>Simple fast and PowerFul</h4>
