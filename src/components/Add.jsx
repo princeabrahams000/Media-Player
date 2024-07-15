@@ -1,14 +1,11 @@
-import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons'
+import { faCloudArrowUp, faFilm, faIcons } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-
-
-
-
+faFilm
 
 
 function Add() {
@@ -29,15 +26,22 @@ function Add() {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title><FontAwesomeIcon icon={faFilm} className='me-2'/>Upload Videos</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+          <p>Please fill the following details</p>
+          <form className='border p-3 border-secondary rounded'>
+            <input type="text" placeholder='Video Caption' className='form-control mt-3' />
+            <input type="text" placeholder='Video Image' className='form-control mt-3' />
+            <input type="text" placeholder='Video URL' className='form-control mt-3' />
+          </form>
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            Cancel
           </Button>
           <Button variant="primary" onClick={handleClose}>
-            Save Changes
+            Upload
           </Button>
         </Modal.Footer>
       </Modal>
