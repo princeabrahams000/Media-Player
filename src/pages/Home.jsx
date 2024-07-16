@@ -18,7 +18,7 @@ function Home() {
 
     <div className="row w-100">
       <div className="col-md-9">
-        <h4>All Videos</h4>
+        <h4 className='ms-3'>All Videos</h4>
         <Vmus/>
       </div>
       <div className="col-md-3">
