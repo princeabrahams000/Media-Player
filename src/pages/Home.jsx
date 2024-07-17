@@ -13,7 +13,7 @@ function Home() {
     <>
     <div className="d-flex mt-5 p-5">
       <Add/>
-      <h5 className='ms-auto '><Link  to={'/watch-history'} style={{textDecoration:'none', color:'white'}}><FontAwesomeIcon icon={faClockRotateLeft} />Watch History</Link></h5>
+      <h5 className='ms-auto '><Link  to={'/watch-history'} style={{textDecoration:'none', color:'white'}}><FontAwesomeIcon icon={faClockRotateLeft} /><span id='h'>Watch History</span></Link></h5>
     </div>
 
     <div className="row w-100">

@@ -1,14 +1,22 @@
-import { faPlus, faTrashCan } from '@fortawesome/free-solid-svg-icons'
+import { faPenNib, faPlus, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import VideoCard from './VideoCard'
+import { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+
 
 
 function Catagory() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
     <>
       <div className='w-100 mt-1 p-4'>
-        <button className='btn btn-warning w-100'>Add New Catagory<FontAwesomeIcon icon={faPlus} /></button>   
+        <button onClick={handleShow} className='btn btn-warning w-100'>Add New Catagory<FontAwesomeIcon icon={faPlus} /></button>   
       </div>
 
       <div className='mt-5'>
@@ -20,6 +28,25 @@ function Catagory() {
         <VideoCard/>
         </div>
       </div>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title className='text-warning'><FontAwesomeIcon icon={faPenNib} />Add New Catagory</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <form className='border rounded p-3 border-secondary'>
+            <input type="text" placeholder='Category Name' className='form-control' />
+          </form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Cancel
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Add
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   )  
 }
