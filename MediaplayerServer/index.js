@@ -16,3 +16,10 @@ mediaPlayerServer.use(middleware)
 mediaPlayerServer.use(router)
 
 //6) set port for server
+const PORT = 3000 || process.env.PORT
+
+//7) run server
+mediaPlayerServer.listen(PORT,()=>{
+    console.log(`server running successfully at port number ${PORT}`);
+})
+

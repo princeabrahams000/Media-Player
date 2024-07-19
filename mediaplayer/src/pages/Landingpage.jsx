@@ -2,6 +2,7 @@ import { faHouse } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 
 
 
@@ -23,7 +24,7 @@ function Landingpage() {
             repellendus architecto nam, cum, modi eum! Id consequuntur quam
             fugit aliquam minima sapiente, tenetur eum.
           </p>
-          <button className="btn btn-primary mt-5">Get Started</button>
+          <button className="btn btn-primary mt-5"><Link to={'/home'} style={{textDecoration:'none', color:'white'}}>Get Started</Link></button>
         </div>
         <div className="col-md-5 d-flex align-items-center justify-content-center">
           <img
