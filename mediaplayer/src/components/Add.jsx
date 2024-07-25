@@ -9,7 +9,9 @@ import React from "react";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-faFilm;
+import { addVideoApi } from "../services/allApi";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Add() {
   const [Video, setVideo] = useState({
@@ -44,22 +46,20 @@ function Add() {
       let embedLink = `https://www.youtube.com/embed/${ytkey}`;
       setVideo({ ...Video, url: embedLink });
     }
-  }
+  };
 
   console.log(Video);
 
-  const handleUpload = (e) => {
+  const handleUpload = async (e) => {
     e.preventDefault();
     const { caption, image, url } = Video;
     if (!caption || !image || !url) {
       alert("please fill the form completely");
+    } else {
+      const result = await addVideoApi(Video);
+      console.log(result);
     }
-  }
- 
-
-
-
-  
+  };
 
   return (
     <>
@@ -109,6 +109,7 @@ function Add() {
           </Button>
         </Modal.Footer>
       </Modal>
+      <ToastContainer theme="colored" position="top-center" />
     </>
   );
 }
