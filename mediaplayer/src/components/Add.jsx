@@ -54,10 +54,17 @@ function Add() {
     e.preventDefault();
     const { caption, image, url } = Video;
     if (!caption || !image || !url) {
-      alert("please fill the form completely");
+      toast.info("please fill the form completely");
     } else {
       const result = await addVideoApi(Video);
       console.log(result);
+      if(result.status>200 && result.status<300){
+        toast.success('Video uploaded successfully')
+        handleClose() 
+      }else{
+        toast.error('Something went wrong')
+        handleClose()
+      }
     }
   };
 
@@ -109,7 +116,7 @@ function Add() {
           </Button>
         </Modal.Footer>
       </Modal>
-      <ToastContainer theme="colored" position="top-center" />
+      <ToastContainer theme="colored" position="top-center" autoClose={2000} />
     </>
   );
 }
