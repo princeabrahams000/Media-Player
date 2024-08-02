@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Modal from "react-bootstrap/Modal";
 
-function VideoCard(displayVideo) {
+function VideoCard({displayVideo}) {
   console.log(displayVideo);
 
   const [show, setShow] = useState(false);

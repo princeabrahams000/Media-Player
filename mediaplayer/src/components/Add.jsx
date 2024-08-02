@@ -13,7 +13,7 @@ import { addVideoApi } from "../services/allApi";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function Add() {
+function Add({setAddStatus}) {
   const [Video, setVideo] = useState({
     caption: "",
     image: "",
@@ -60,6 +60,7 @@ function Add() {
       console.log(result);
       if(result.status>200 && result.status<300){
         toast.success('Video uploaded successfully')
+        setAddStatus(result.data)
         handleClose() 
       }else{
         toast.error('Something went wrong')

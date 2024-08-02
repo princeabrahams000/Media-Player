@@ -4,7 +4,7 @@ import VideoCard from './VideoCard'
 import { getVideoApi } from '../services/allApi'
 
 
-function Vmus() {
+function Vmus({addStatus}) {
 
   const [videoDetails, setVideoDetails] = useState([])
 
@@ -15,7 +15,7 @@ function Vmus() {
 
   useEffect(()=>{
     getVideo()
-  },[])
+  },[addStatus])
   console.log(videoDetails);
 
 
