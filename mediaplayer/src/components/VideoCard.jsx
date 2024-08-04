@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Modal from "react-bootstrap/Modal";
+import { deleteVideoApi } from "../services/allApi";
 
 function VideoCard({displayVideo}) {
   console.log(displayVideo);
@@ -12,6 +13,15 @@ function VideoCard({displayVideo}) {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleDelete = async(id)=>{
+    const result = await deleteVideoApi(id)
+    console.log(result);
+    
+  }
+
+
+
   return (
     <>
       <Card style={{ width: "100%" }} className=" mt-3  ms-md-0">
@@ -25,7 +35,7 @@ function VideoCard({displayVideo}) {
         <Card.Body className="d-flex justify-content-between">
           <Card.Text className="me-3">{displayVideo?.caption}</Card.Text>
           
-          <Button variant="primary">
+          <Button className="btn btn-danger ms-auto" onClick={()=>handleDelete(displayVideo?.id)}>
             <FontAwesomeIcon icon={faTrashCan} />
           </Button>
         </Card.Body>
