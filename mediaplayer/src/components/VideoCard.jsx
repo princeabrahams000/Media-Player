@@ -6,7 +6,7 @@ import Card from "react-bootstrap/Card";
 import Modal from "react-bootstrap/Modal";
 import { deleteVideoApi } from "../services/allApi";
 
-function VideoCard({displayVideo}) {
+function VideoCard({displayVideo, setDeleteVideoStatus}) {
   console.log(displayVideo);
 
   const [show, setShow] = useState(false);
@@ -14,9 +14,15 @@ function VideoCard({displayVideo}) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  
+
   const handleDelete = async(id)=>{
     const result = await deleteVideoApi(id)
     console.log(result);
+    if(result.status>=200 && result.status<300){
+      
+      setDeleteVideoStatus(result.data)
+    }
     
   }
 
@@ -49,7 +55,7 @@ function VideoCard({displayVideo}) {
           <iframe
             width="100%"
             height="444"
-            src={`${displayVideo?.url}? autoplay=1`}
+            src={`${displayVideo?.url}?autoplay=1`}
             title="Addiction (Official Video) Garry Sandhu | New Punjabi Video Song 2024 | Bipolar | Fresh Media Record"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
