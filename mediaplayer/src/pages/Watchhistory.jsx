@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Table from 'react-bootstrap/Table';
-import { getVideoFromHistoryApi } from '../services/allApi';
+import { deleteVideoFromHistory, getVideoFromHistoryApi } from '../services/allApi';
 
 
 
@@ -11,6 +11,8 @@ import { getVideoFromHistoryApi } from '../services/allApi';
 function Watchhistory() {
 
   const [videoHistory , setVideoHistory] = useState([])
+
+  const [deleteStatus, setDeleteStatus] = useState([])
 
   const getHistory = async()=>{
     const result = await getVideoFromHistoryApi()
@@ -24,13 +26,14 @@ function Watchhistory() {
 
   useEffect(()=>{
     getHistory()
-  },[])
+  },[deleteStatus])
 
 
 
   const deleteHistory = async(id)=>{
     const result = await deleteVideoFromHistory(id)
     console.log(result);
+    setDeleteStatus(result.data)
   }
 
   return (
