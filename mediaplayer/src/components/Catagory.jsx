@@ -5,6 +5,7 @@ import VideoCard from './VideoCard'
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { addCatagoryApi } from '../services/allApi';
 
 
 
@@ -13,6 +14,14 @@ function Catagory() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const addCatagory = async()=>{
+
+    
+    const result = await addCatagoryApi()
+    console.log(result);
+    
+  }
   return (
     <>
       <div className='w-100 mt-1 p-4'>
