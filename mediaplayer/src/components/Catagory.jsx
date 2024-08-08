@@ -16,7 +16,6 @@ function Catagory() {
   const handleShow = () => setShow(true);
 
   const addCatagory = async()=>{
-
     
     const result = await addCatagoryApi()
     console.log(result);
