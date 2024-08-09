@@ -11,13 +11,19 @@ import { addCatagoryApi } from '../services/allApi';
 
 function Catagory() {
   const [show, setShow] = useState(false);
+  cont [categoryName,setCatagoryName]=useState("")
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {setShow(false)
+    setCatagoryName("")
+  };
   const handleShow = () => setShow(true);
 
   const addCatagory = async()=>{
-    
-    const result = await addCatagoryApi()
+    const reqBody ={
+      categoryName,
+      allVideo:[]
+    }
+    const result = await addCatagoryApi(reqBody)
     console.log(result);
     
   }
@@ -43,14 +49,14 @@ function Catagory() {
         </Modal.Header>
         <Modal.Body>
           <form className='border rounded p-3 border-secondary'>
-            <input type="text" placeholder='Category Name' className='form-control' />
+            <input type="text" placeholder='Category Name' className='form-control' onChange={(e)=>setCatagoryName(e.target.value)}/>
           </form>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={addCatagory}>
             Add
           </Button>
         </Modal.Footer>
