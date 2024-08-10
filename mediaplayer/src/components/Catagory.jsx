@@ -1,17 +1,19 @@
 import { faPenNib, faPlus, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
+import React, { useEffect } from 'react'
 import VideoCard from './VideoCard'
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { addCatagoryApi } from '../services/allApi';
+import { addCatagoryApi, AllCategoryApi } from '../services/allApi';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 
 function Catagory() {
   const [show, setShow] = useState(false);
-  cont [categoryName,setCatagoryName]=useState("")
+  const [categoryName,setCatagoryName]=useState("")
 
   const handleClose = () => {setShow(false)
     setCatagoryName("")
@@ -19,14 +21,40 @@ function Catagory() {
   const handleShow = () => setShow(true);
 
   const addCatagory = async()=>{
-    const reqBody ={
-      categoryName,
-      allVideo:[]
+
+
+    if(categoryName){
+      const reqBody ={
+        categoryName,
+        allVideo:[]
+      }
+      const result = await addCatagoryApi(reqBody)
+      console.log(result);
+  
+      if(result.status>=200 && result.status<300){
+        handleClose()
+        toast.success('Catagory added successufully')
+  
+      }else{
+        console.log(result);
+        
+      }
+      
+    }else{
+      toast.info('Please add the Catagory name')
     }
-    const result = await addCatagoryApi(reqBody)
+  }
+
+  const getAllCategory = async()=>{
+    const result = await AllCategoryApi()
     console.log(result);
     
   }
+
+  useEffect(()=>{
+    getAllCategory()
+  },[])
+
   return (
     <>
       <div className='w-100 mt-1 p-4'>
@@ -61,6 +89,7 @@ function Catagory() {
           </Button>
         </Modal.Footer>
       </Modal>
+      <ToastContainer theme="colored" position="top-center" autoClose={2000} />
     </>
   )  
 }

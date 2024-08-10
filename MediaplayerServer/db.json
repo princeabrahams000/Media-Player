@@ -19,7 +19,23 @@
       "id": 11
     }
   ],
-  "catagory": [],
+  "catagory": [
+    {
+      "categoryName": "Tamil songs",
+      "allVideo": [],
+      "id": 1
+    },
+    {
+      "categoryName": "Tamil songs",
+      "allVideo": [],
+      "id": 2
+    },
+    {
+      "categoryName": "Malayalam Songs",
+      "allVideo": [],
+      "id": 3
+    }
+  ],
   "history": [
     {
       "caption": "Darshana ",
