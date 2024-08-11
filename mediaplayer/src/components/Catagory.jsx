@@ -14,6 +14,9 @@ import "react-toastify/dist/ReactToastify.css";
 function Catagory() {
   const [show, setShow] = useState(false);
   const [categoryName,setCatagoryName]=useState("")
+  const [allCategory, setAllCatagory] = useState([])
+  const [addStatus, setAddStaus] = useState(false)
+
 
   const handleClose = () => {setShow(false)
     setCatagoryName("")
@@ -28,10 +31,9 @@ function Catagory() {
         categoryName,
         allVideo:[]
       }
-      const result = await addCatagoryApi(reqBody)
-      console.log(result);
-  
+      const result = await addCatagoryApi(reqBody)  
       if(result.status>=200 && result.status<300){
+        setAddStaus(true)
         handleClose()
         toast.success('Catagory added successufully')
   
@@ -48,12 +50,19 @@ function Catagory() {
   const getAllCategory = async()=>{
     const result = await AllCategoryApi()
     console.log(result);
+    if(result.status>=200 && result.status<300){
+      setAllCatagory(result.data)
+     
+    }
     
   }
+  console.log(allCategory);
+  
 
   useEffect(()=>{
+    setAddStaus(false)
     getAllCategory()
-  },[])
+  },[addStatus])
 
   return (
     <>
@@ -61,15 +70,19 @@ function Catagory() {
         <button onClick={handleShow} className='btn btn-warning w-100'>Add New Catagory<FontAwesomeIcon icon={faPlus} /></button>   
       </div>
 
-      <div className='mt-5'>
+      {allCategory?.length>0?
+      allCategory?.map((item)=>( <div className='mt-5'>
         <div className='border border-secondary mt-3 rounded p-3 ms-2'>
           <div className="d-flex">
-            <h5>Movie title</h5>
+            <h5>{item.categoryName}</h5>
             <button className='btn btn-danger ms-auto'><FontAwesomeIcon icon={faTrashCan} /></button>
           </div>
-        <VideoCard/>
+        {/* <VideoCard/> */}
         </div>
-      </div>
+      </div>))
+       
+      :
+      null}
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
