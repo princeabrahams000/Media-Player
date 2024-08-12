@@ -6,6 +6,7 @@ import Card from "react-bootstrap/Card";
 import Modal from "react-bootstrap/Modal";
 import { addToHistoryApi, deleteVideoApi } from "../services/allApi";
 
+
 function VideoCard({displayVideo, setDeleteVideoStatus}) {
   console.log(displayVideo);
 
@@ -43,11 +44,16 @@ function VideoCard({displayVideo, setDeleteVideoStatus}) {
     
   }
 
+  const videoDrag = (e, id)=>{
+    console.log('card draged is :',id);
+    e.dataTransfer.setData("videoId",id)
+    
+  }
 
 
   return (
     <>
-      <Card style={{ width: "100%" }} className=" mt-3  ms-md-0">
+      <Card style={{ width: "100%" }} className=" mt-3  ms-md-0" draggable onDragStart={(e)=>videoDrag(e,displayVideo?.id)}>
         <Card.Img
           onClick={handleShow}
           variant="top"

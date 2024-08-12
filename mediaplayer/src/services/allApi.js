@@ -51,3 +51,18 @@ return await commonApi('POST',`${serverUrl}/catagory`,reqBody)
 export const AllCategoryApi = async()=>{
     return await commonApi('GET',`${serverUrl}/catagory`,"")
 }
+
+//api to delete catagory
+
+export const deleteCatagoryApi = async(id) =>{
+    return await commonApi('DELETE',`${serverUrl}/catagory/${id}`,{})
+}
+
+//api to get a video
+
+export const AvideoApi = async (id)=>{
+    return await commonApi('GET',`${serverUrl}/videos/${id}`,"")
+}
+
+//api to update catagory
+

@@ -21,49 +21,24 @@
   ],
   "catagory": [
     {
-      "categoryName": "Tamil songs",
+      "categoryName": "Malalyalam",
       "allVideo": [],
       "id": 1
     },
     {
-      "categoryName": "Tamil songs",
+      "categoryName": "Hindi",
       "allVideo": [],
       "id": 2
     },
     {
-      "categoryName": "Malayalam Songs",
+      "categoryName": "English",
       "allVideo": [],
       "id": 3
     },
     {
-      "categoryName": "English Songs",
+      "categoryName": "Prince",
       "allVideo": [],
       "id": 4
-    },
-    {
-      "categoryName": "kash songs",
-      "allVideo": [],
-      "id": 5
-    },
-    {
-      "categoryName": "djfsldfk",
-      "allVideo": [],
-      "id": 6
-    },
-    {
-      "categoryName": "jkdfdkfj",
-      "allVideo": [],
-      "id": 7
-    },
-    {
-      "categoryName": "prince",
-      "allVideo": [],
-      "id": 8
-    },
-    {
-      "categoryName": "sasi",
-      "allVideo": [],
-      "id": 9
     }
   ],
   "history": [
@@ -72,6 +47,30 @@
       "url": "https://www.youtube.com/embed/epAFDEJImrU",
       "timeStamp": "06/08/2024, 01:42:18",
       "id": 2
+    },
+    {
+      "caption": "Darshana ",
+      "url": "https://www.youtube.com/embed/epAFDEJImrU",
+      "timeStamp": "11/08/2024, 18:57:38",
+      "id": 3
+    },
+    {
+      "caption": "JO TUM MERE HO",
+      "url": "https://www.youtube.com/embed/ilNt2bikxDI",
+      "timeStamp": "11/08/2024, 22:31:09",
+      "id": 4
+    },
+    {
+      "caption": "JO TUM MERE HO",
+      "url": "https://www.youtube.com/embed/ilNt2bikxDI",
+      "timeStamp": "11/08/2024, 22:31:21",
+      "id": 5
+    },
+    {
+      "caption": "HUSN",
+      "url": "https://www.youtube.com/embed/gJLVTKhTnog",
+      "timeStamp": "11/08/2024, 22:31:44",
+      "id": 6
     }
   ]
 }

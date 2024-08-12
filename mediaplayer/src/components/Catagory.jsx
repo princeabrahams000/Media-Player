@@ -5,7 +5,7 @@ import VideoCard from './VideoCard'
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { addCatagoryApi, AllCategoryApi } from '../services/allApi';
+import { addCatagoryApi, AllCategoryApi, AvideoApi, deleteCatagoryApi } from '../services/allApi';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -57,7 +57,38 @@ function Catagory() {
     
   }
   console.log(allCategory);
+  const delCategory = async(id)=>{
+    const result = await deleteCatagoryApi(id)
+    console.log(result);
+    getAllCategory()
+    
+  }
   
+  const DragOver = (e)=>{
+    e.preventDefault()
+  }
+
+  const VideoDrop = async(e, categoryId)=>{
+    console.log(`category id is :${categoryId}`);
+    //access the video id from view component
+    const videoId= e.dataTransfer.getData("videoId")
+    console.log("video id is",videoId);
+    //get video details from backend
+    const videoDetails = await AvideoApi(videoId)
+    console.log(data);
+
+    const selectedCatagory = allCategory.find((item)=>item.id==categoryId)
+
+    if(selectedCatagory.allVideo.find((item)=>item.id==data.id)){
+      toast.warning('Video already exist in Catagory')
+
+    }else{
+      selectedCatagory.allVideo.push(data)
+    }
+    
+    
+  }
+
 
   useEffect(()=>{
     setAddStaus(false)
@@ -71,11 +102,11 @@ function Catagory() {
       </div>
 
       {allCategory?.length>0?
-      allCategory?.map((item)=>( <div className='mt-5'>
+      allCategory?.map((item)=>( <div className='mt-5' droppable onDragOver={(e)=>DragOver(e)} onDrop={(e)=>VideoDrop(e,item.id)}>
         <div className='border border-secondary mt-3 rounded p-3 ms-2'>
           <div className="d-flex">
             <h5>{item.categoryName}</h5>
-            <button className='btn btn-danger ms-auto'><FontAwesomeIcon icon={faTrashCan} /></button>
+            <button className='btn btn-danger ms-auto' onClick={()=>delCategory(item.id)}><FontAwesomeIcon icon={faTrashCan} /></button>
           </div>
         {/* <VideoCard/> */}
         </div>
