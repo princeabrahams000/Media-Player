@@ -65,4 +65,7 @@ export const AvideoApi = async (id)=>{
 }
 
 //api to update catagory
-
+export const updateCategoryApi  = async(id , reqBody)=>{
+   return await commonApi('PUT', `${serverUrl}/catagory/${id}`, reqBody)
+}
+    

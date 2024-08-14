@@ -22,12 +22,26 @@
   "catagory": [
     {
       "categoryName": "Malalyalam",
-      "allVideo": [],
+      "allVideo": [
+        {
+          "caption": "JO TUM MERE HO",
+          "image": "https://c.saavncdn.com/712/Tum-Mere-Ho-Unknown-2020-20220813085713-500x500.jpg",
+          "url": "https://www.youtube.com/embed/ilNt2bikxDI",
+          "id": 10
+        }
+      ],
       "id": 1
     },
     {
       "categoryName": "Hindi",
-      "allVideo": [],
+      "allVideo": [
+        {
+          "caption": "JO TUM MERE HO",
+          "image": "https://c.saavncdn.com/712/Tum-Mere-Ho-Unknown-2020-20220813085713-500x500.jpg",
+          "url": "https://www.youtube.com/embed/ilNt2bikxDI",
+          "id": 10
+        }
+      ],
       "id": 2
     },
     {
@@ -39,6 +53,11 @@
       "categoryName": "Prince",
       "allVideo": [],
       "id": 4
+    },
+    {
+      "categoryName": "mooshik",
+      "allVideo": [],
+      "id": 5
     }
   ],
   "history": [
@@ -71,6 +90,12 @@
       "url": "https://www.youtube.com/embed/gJLVTKhTnog",
       "timeStamp": "11/08/2024, 22:31:44",
       "id": 6
+    },
+    {
+      "caption": "HUSN",
+      "url": "https://www.youtube.com/embed/gJLVTKhTnog",
+      "timeStamp": "12/08/2024, 23:56:55",
+      "id": 7
     }
   ]
 }

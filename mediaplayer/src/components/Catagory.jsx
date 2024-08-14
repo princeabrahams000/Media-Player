@@ -5,7 +5,7 @@ import VideoCard from './VideoCard'
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { addCatagoryApi, AllCategoryApi, AvideoApi, deleteCatagoryApi } from '../services/allApi';
+import { addCatagoryApi, AllCategoryApi, AvideoApi, deleteCatagoryApi, updateCategoryApi } from '../services/allApi';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -74,7 +74,7 @@ function Catagory() {
     const videoId= e.dataTransfer.getData("videoId")
     console.log("video id is",videoId);
     //get video details from backend
-    const videoDetails = await AvideoApi(videoId)
+    const {data} = await AvideoApi(videoId)
     console.log(data);
 
     const selectedCatagory = allCategory.find((item)=>item.id==categoryId)
@@ -84,8 +84,10 @@ function Catagory() {
 
     }else{
       selectedCatagory.allVideo.push(data)
+      await updateCategoryApi(categoryId,selectedCatagory)
     }
     
+
     
   }
 
